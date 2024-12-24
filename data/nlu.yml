@@ -23,6 +23,7 @@ nlu:
     - здравствуйте
     - здрасьте
     - говорите
+    - mlkmlmlk
     - да
 
 - intent: langDetectKG
