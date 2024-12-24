@@ -1,0 +1,4732 @@
+version: "3.1"
+
+rules:
+
+# q1--------------------------------------------------------------------
+
+- rule: q1_oosRU
+  steps:
+  - action: utter_q1RU
+  - or:
+    - intent: langDetectRU
+    - intent: langDetectKG
+    - intent: changeLangRU
+    - intent: nlu_fallback
+  - action: utter_q1RU
+
+
+- rule: q1_oosKG
+  steps:
+  - action: utter_q1KG
+  - or:
+    - intent: langDetectKG
+    - intent: langDetectRU
+    - intent: changeLangKG
+    - intent: nlu_fallback
+  - action: utter_q1KG
+
+
+- rule: q1_changelangRU
+  steps:
+  - action: utter_q1RU
+  - intent: changeLangKG
+  - action: utter_q1KG
+
+
+- rule: q1_changelangKG
+  steps:
+  - action: utter_q1KG
+  - intent: changeLangRU
+  - action: utter_q1RU
+
+- rule: q1_repeatRU
+  steps:
+  - action: utter_q1RU
+  - intent: repeat
+  - action: utter_q1RU
+
+- rule: q1_repeatKG
+  steps:
+  - action: utter_q1KG
+  - intent: repeat
+  - action: utter_q1KG
+
+- rule: q1_forgotRU
+  steps:
+  - action: utter_q1RU
+  - intent: forgot
+  - action: utter_forgotRU
+  - action: utter_q3RU
+
+- rule: q1_forgotKG
+  steps:
+  - action: utter_q1KG
+  - intent: forgot
+  - action: utter_forgotKG
+  - action: utter_q3KG
+
+- rule: q1_delayRU
+  steps:
+  - action: utter_q1RU
+  - intent: delay
+  - action: utter_delayRU
+  - action: utter_q3RU
+
+- rule: q1_delayKG
+  steps:
+  - action: utter_q1KG
+  - intent: delay
+  - action: utter_delayKG
+  - action: utter_q3KG
+
+- rule: q1_lostJobRU
+  steps:
+  - action: utter_q1RU
+  - intent: lostJob
+  - action: utter_lostJobRU
+  - action: utter_q3RU
+
+- rule: q1_lostJobKG
+  steps:
+  - action: utter_q1KG
+  - intent: lostJob
+  - action: utter_lostJobKG
+  - action: utter_q3KG
+
+- rule: q1_noMoneyRU
+  steps:
+  - action: utter_q1RU
+  - intent: noMoney
+  - action: utter_noMoneyRU
+  - action: utter_q3RU
+
+- rule: q1_noMoneyKG
+  steps:
+  - action: utter_q1KG
+  - intent: noMoney
+  - action: utter_noMoneyKG
+  - action: utter_q3KG
+
+- rule: q1_notMyCreditRU
+  steps:
+  - action: utter_q1RU
+  - intent: notMyCredit
+  - action: utter_notMyCreditRU
+  - action: utter_q4RU
+
+- rule: q1_notMyCreditKG
+  steps:
+  - action: utter_q1KG
+  - intent: notMyCredit
+  - action: utter_notMyCreditKG
+  - action: utter_q4KG
+
+- rule: q1_knownRU
+  steps:
+  - action: utter_q1RU
+  - intent: known
+  - action: utter_knownRU
+  - action: utter_q4RU
+
+- rule: q1_knownKG
+  steps:
+  - action: utter_q1KG
+  - intent: known
+  - action: utter_knownKG
+  - action: utter_q4KG
+
+- rule: q1_finePercentRU
+  steps:
+  - action: utter_q1RU
+  - intent: finePercent
+  - action: utter_finePercentRU
+  - action: utter_q4RU
+
+- rule: q1_finePercentKG
+  steps:
+  - action: utter_q1KG
+  - intent: finePercent
+  - action: utter_finePercentKG
+  - action: utter_q4KG
+
+- rule: q1_stopCallingMeRU
+  steps:
+  - action: utter_q1RU
+  - intent: stopCallingMe
+  - action: utter_stopCallingMeRU
+  - action: utter_q1RU
+
+- rule: q1_stopCallingMeKG
+  steps:
+  - action: utter_q1KG
+  - intent: stopCallingMe
+  - action: utter_stopCallingMeKG
+  - action: utter_q1KG
+
+- rule: q1_whoDoYouCallRU
+  steps:
+  - action: utter_q1RU
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallRU
+  - action: utter_q4RU
+
+- rule: q1_whoDoYouCallKG
+  steps:
+  - action: utter_q1KG
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallKG
+  - action: utter_q4KG
+  
+- rule: q1_moneyOnCardRU
+  steps:
+  - action: utter_q1RU
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardRU
+  - action: utter_q4RU
+
+- rule: q1_moneyOnCardKG
+  steps:
+  - action: utter_q1KG
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardKG
+  - action: utter_q4KG
+
+- rule: q1_whenRU
+  steps:
+  - action: utter_q1RU
+  - intent: when
+  - action: utter_whenRU
+  - action: utter_q4RU
+
+- rule: q1_whenKG
+  steps:
+  - action: utter_q1KG
+  - intent: when
+  - action: utter_whenKG
+  - action: utter_q4KG
+
+- rule: q1_otherQuestionRU
+  steps:
+  - action: utter_q1RU
+  - intent: otherQuestion
+  - action: utter_otherQuestionRU
+  - action: utter_q4RU
+
+- rule: q1_otherQuestionKG
+  steps:
+  - action: utter_q1KG
+  - intent: otherQuestion
+  - action: utter_otherQuestionKG
+  - action: utter_q4KG
+
+- rule: q1_terminalDoesntWorkRU
+  steps:
+  - action: utter_q1RU
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkRU
+  - action: utter_q4RU
+
+- rule: q1_terminalDoesntWorkKG
+  steps:
+  - action: utter_q1KG
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkKG
+  - action: utter_q4KG
+
+- rule: q1_howMuchRU
+  steps:
+  - action: utter_q1RU
+  - intent: howMuch
+  - action: utter_howMuchRU
+  - action: utter_howMuchRU1
+  - action: utter_q4RU
+
+- rule: q1_howMuchKG
+  steps:
+  - action: utter_q1KG
+  - intent: howMuch
+  - action: utter_howMuchKG
+  - action: utter_howMuchKG1
+  - action: utter_q4KG
+
+- rule: q1_unclearSpeachRU
+  steps:
+  - action: utter_q1RU
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachRU
+
+- rule: q1_unclearSpeachKG
+  steps:
+  - action: utter_q1KG
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachKG
+
+- rule: q1_wrongNumberRU
+  steps:
+  - action: utter_q1RU
+  - intent: wrongNumber
+  - action: utter_wrongNumberRU
+ 
+- rule: q1_wrongNumberKG
+  steps:
+  - action: utter_q1KG
+  - intent: wrongNumber
+  - action: utter_wrongNumberKG
+
+- rule: q1_paidRU
+  steps:
+  - action: utter_q1RU
+  - intent: paid
+  - action: utter_paidRU
+ 
+- rule: q1_paidKG
+  steps:
+  - action: utter_q1KG
+  - intent: paid
+  - action: utter_paidKG
+
+- rule: q1_sickRU
+  steps:
+  - action: utter_q1RU
+  - intent: sick
+  - action: utter_sickRU
+  - action: utter_q3RU
+
+- rule: q1_sickKG
+  steps:
+  - action: utter_q1KG
+  - intent: sick
+  - action: utter_sickKG
+  - action: utter_q3KG
+
+- rule: q1_soundlesslyRU
+  steps:
+  - action: utter_q1RU
+  - intent: soundlessly
+  - action: utter_soundlesslyRU
+
+- rule: q1_soundlesslyKG
+  steps:
+  - action: utter_q1KG
+  - intent: soundlessly
+  - action: utter_soundlesslyKG
+
+- rule: q1_dontHaveCreditRU
+  steps:
+  - action: utter_q1RU
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditRU
+
+- rule: q1_dontHaveCreditKG
+  steps:
+  - action: utter_q1KG
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditKG
+
+- rule: q1_haveAQuestionRU
+  steps:
+  - action: utter_q1RU
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionRU
+
+- rule: q1_haveAQuestionKG
+  steps:
+  - action: utter_q1KG
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionKG
+
+- rule: q1_appDoesntWorkRU
+  steps:
+  - action: utter_q1RU
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkRU
+  - action: utter_q4RU
+
+- rule: q1_appDoesntWorkKG
+  steps:
+  - action: utter_q1KG
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkKG
+  - action: utter_q4KG
+
+- rule: q1_judgeRU
+  steps:
+  - action: utter_q1RU
+  - intent: judge
+  - action: utter_judgeRU
+  - action: utter_q3RU
+
+- rule: q1_judgeKG
+  steps:
+  - action: utter_q1KG
+  - intent: judge
+  - action: utter_judgeKG
+  - action: utter_q3KG
+
+- rule: q1_adressRU
+  steps:
+  - action: utter_q1RU
+  - intent: adress
+  - action: utter_adressRU
+  - action: utter_q3RU
+
+- rule: q1_adressKG
+  steps:
+  - action: utter_q1KG
+  - intent: adress
+  - action: utter_adressKG
+  - action: utter_q3KG
+
+- rule: q1_whatALoanRU
+  steps:
+  - action: utter_q1RU
+  - intent: whatALoan
+  - action: utter_whatALoanRU
+  - action: utter_q4RU
+
+- rule: q1_whatALoanKG
+  steps:
+  - action: utter_q1KG
+  - intent: whatALoan
+  - action: utter_whatALoanKG
+  - action: utter_q4KG
+
+- rule: q1_detailsRU
+  steps:
+  - action: utter_q1RU
+  - intent: details
+  - action: utter_detailsRU
+  - action: utter_q4KG
+
+- rule: q1_detailsKG
+  steps:
+  - action: utter_q1KG
+  - intent: details
+  - action: utter_detailsKG
+  - action: utter_q4KG
+
+- rule: q1_relativeRU
+  steps:
+  - action: utter_q1RU
+  - intent: relative
+  - action: utter_relativeRU
+
+- rule: q1_relativeKG
+  steps:
+  - action: utter_q1KG
+  - intent: relative
+  - action: utter_relativeKG
+
+- rule: q1_dontHaveRightRU
+  steps:
+  - action: utter_q1RU
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightRU
+  - action: utter_q3RU
+
+- rule: q1_dontHaveRightKG
+  steps:
+  - action: utter_q1KG
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightKG
+  - action: utter_q3KG
+
+- rule: q1_tomorrowRU
+  steps:
+  - action: utter_q1RU
+  - intent: tomorrow
+  - action: utter_tomorrowRU
+  - action: utter_q2RU
+
+- rule: q1_tomorrowKG
+  steps:
+  - action: utter_q1KG
+  - intent: tomorrow
+  - action: utter_tomorrowKG
+  - action: utter_q2KG
+  
+- rule: q1_notCorrectSumRU
+  steps:
+  - action: utter_q1RU
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumRU
+  - action: utter_notCorrectSumRU1
+  - action: utter_notCorrectSumRU2
+  - action: utter_q1RU
+
+- rule: q1_notCorrectSumKG
+  steps:
+  - action: utter_q1KG
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumKG
+  - action: utter_notCorrectSumKG1
+  - action: utter_notCorrectSumKG2
+  - action: utter_q1KG
+
+- rule: q1_whoIsItRU
+  steps:
+  - action: utter_q1RU
+  - intent: whoIsIt
+  - action: utter_whoIsItRU
+  - action: utter_q1RU
+
+- rule: q1_whoIsItKG
+  steps:
+  - action: utter_q1KG
+  - intent: whoIsIt
+  - action: utter_whoIsItKG
+  - action: utter_q1KG
+
+- rule: q1_yesRU
+  steps:
+  - action: utter_q1RU
+  - intent: yes
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q1_yesKG
+  steps:
+  - action: utter_q1KG
+  - intent: yes
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+
+
+- rule: q1_willpayRU
+  steps:
+  - action: utter_q1RU
+  - intent: willpay
+  - action: utter_willpayRU
+
+- rule: q1_willpayKG
+  steps:
+  - action: utter_q1KG
+  - intent: willpay
+  - action: utter_willpayKG
+
+- rule: q1_noRU
+  steps:
+  - action: utter_q1RU
+  - intent: no
+  - action: utter_denyRU
+  - action: utter_q5RU
+
+- rule: q1_noKG
+  steps:
+  - action: utter_q1KG
+  - intent: no
+  - action: utter_denyKG
+  - action: utter_q5KG
+
+
+# q2--------------------------------------------------------------------
+
+- rule: q2_oosRU
+  steps:
+  - action: utter_q2RU
+  - or:
+    - intent: langDetectRU
+    - intent: langDetectKG
+    - intent: changeLangRU
+    - intent: nlu_fallback
+  - action: utter_q2RU
+
+
+- rule: q2_oosKG
+  steps:
+  - action: utter_q2KG
+  - or:
+    - intent: langDetectKG
+    - intent: langDetectRU
+    - intent: changeLangKG
+    - intent: nlu_fallback
+  - action: utter_q2KG
+
+
+- rule: q2_changelangRU
+  steps:
+  - action: utter_q2RU
+  - intent: changeLangKG
+  - action: utter_q1KG
+
+
+- rule: q2_changelangKG
+  steps:
+  - action: utter_q2KG
+  - intent: changeLangRU
+  - action: utter_q2RU
+
+- rule: q2_repeatRU
+  steps:
+  - action: utter_q2RU
+  - intent: repeat
+  - action: utter_q2RU
+
+- rule: q2_repeatKG
+  steps:
+  - action: utter_q2KG
+  - intent: repeat
+  - action: utter_q2KG
+
+
+- rule: q2_forgotRU
+  steps:
+  - action: utter_q2RU
+  - intent: forgot
+  - action: utter_forgotRU
+  - action: utter_q3RU
+
+- rule: q2_forgotKG
+  steps:
+  - action: utter_q2KG
+  - intent: forgot
+  - action: utter_forgotKG
+  - action: utter_q3KG
+
+- rule: q2_delayRU
+  steps:
+  - action: utter_q2RU
+  - intent: delay
+  - action: utter_delayRU
+  - action: utter_q3RU
+
+- rule: q2_delayKG
+  steps:
+  - action: utter_q2KG
+  - intent: delay
+  - action: utter_delayKG
+  - action: utter_q3KG
+
+- rule: q2_lostJobRU
+  steps:
+  - action: utter_q2RU
+  - intent: lostJob
+  - action: utter_lostJobRU
+  - action: utter_q3RU
+
+- rule: q2_lostJobKG
+  steps:
+  - action: utter_q2KG
+  - intent: lostJob
+  - action: utter_lostJobKG
+  - action: utter_q3KG
+
+- rule: q2_noMoneyRU
+  steps:
+  - action: utter_q2RU
+  - intent: noMoney
+  - action: utter_noMoneyRU
+  - action: utter_q3RU
+
+- rule: q2_noMoneyKG
+  steps:
+  - action: utter_q2KG
+  - intent: noMoney
+  - action: utter_noMoneyKG
+  - action: utter_q3KG
+
+- rule: q2_notMyCreditRU
+  steps:
+  - action: utter_q2RU
+  - intent: notMyCredit
+  - action: utter_notMyCreditRU
+  - action: utter_q4RU
+
+- rule: q2_notMyCreditKG
+  steps:
+  - action: utter_q2KG
+  - intent: notMyCredit
+  - action: utter_notMyCreditKG
+  - action: utter_q4KG
+
+- rule: q2_knownRU
+  steps:
+  - action: utter_q2RU
+  - intent: known
+  - action: utter_knownRU
+  - action: utter_q4RU
+
+- rule: q2_knownKG
+  steps:
+  - action: utter_q2KG
+  - intent: known
+  - action: utter_knownKG
+  - action: utter_q4KG
+
+- rule: q2_finePercentRU
+  steps:
+  - action: utter_q2RU
+  - intent: finePercent
+  - action: utter_finePercentRU
+  - action: utter_q4RU
+
+- rule: q2_finePercentKG
+  steps:
+  - action: utter_q2KG
+  - intent: finePercent
+  - action: utter_finePercentKG
+  - action: utter_q4KG
+
+- rule: q2_stopCallingMeRU
+  steps:
+  - action: utter_q2RU
+  - intent: stopCallingMe
+  - action: utter_stopCallingMeRU
+  - action: utter_q5RU
+
+- rule: q2_stopCallingMeKG
+  steps:
+  - action: utter_q2KG
+  - intent: stopCallingMe
+  - action: utter_stopCallingMeKG
+  - action: utter_q5KG
+
+- rule: q2_whoDoYouCallRU
+  steps:
+  - action: utter_q2RU
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallRU
+  - action: utter_q4RU
+
+- rule: q2_whoDoYouCallKG
+  steps:
+  - action: utter_q2KG
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallKG
+  - action: utter_q4KG
+  
+- rule: q2_moneyOnCardRU
+  steps:
+  - action: utter_q2RU
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardRU
+  - action: utter_q4RU
+
+- rule: q2_moneyOnCardKG
+  steps:
+  - action: utter_q2KG
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardKG
+  - action: utter_q4KG
+
+- rule: q2_whenRU
+  steps:
+  - action: utter_q2RU
+  - intent: when
+  - action: utter_whenRU
+  - action: utter_q4RU
+
+- rule: q2_whenKG
+  steps:
+  - action: utter_q2KG
+  - intent: when
+  - action: utter_whenKG
+  - action: utter_q4KG
+
+- rule: q2_otherQuestionRU
+  steps:
+  - action: utter_q2RU
+  - intent: otherQuestion
+  - action: utter_otherQuestionRU
+  - action: utter_q4RU
+
+- rule: q2_otherQuestionKG
+  steps:
+  - action: utter_q2KG
+  - intent: otherQuestion
+  - action: utter_otherQuestionKG
+  - action: utter_q4KG
+
+- rule: q2_terminalDoesntWorkRU
+  steps:
+  - action: utter_q2RU
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkRU
+  - action: utter_q4RU
+
+- rule: q2_terminalDoesntWorkKG
+  steps:
+  - action: utter_q2KG
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkKG
+  - action: utter_q4KG
+
+- rule: q2_howMuchRU
+  steps:
+  - action: utter_q2RU
+  - intent: howMuch
+  - action: utter_howMuchRU
+  - action: utter_howMuchRU1
+  - action: utter_q4RU
+
+- rule: q2_howMuchKG
+  steps:
+  - action: utter_q2KG
+  - intent: howMuch
+  - action: utter_howMuchKG
+  - action: utter_howMuchKG1
+  - action: utter_q4KG
+
+- rule: q2_unclearSpeachRU
+  steps:
+  - action: utter_q2RU
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachRU
+
+- rule: q2_unclearSpeachKG
+  steps:
+  - action: utter_q2KG
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachKG
+
+- rule: q2_wrongNumberRU
+  steps:
+  - action: utter_q2RU
+  - intent: wrongNumber
+  - action: utter_wrongNumberRU
+ 
+- rule: q2_wrongNumberKG
+  steps:
+  - action: utter_q2KG
+  - intent: wrongNumber
+  - action: utter_wrongNumberKG
+
+- rule: q2_paidRU
+  steps:
+  - action: utter_q2RU
+  - intent: paid
+  - action: utter_paidRU
+ 
+- rule: q2_paidKG
+  steps:
+  - action: utter_q2KG
+  - intent: paid
+  - action: utter_paidKG
+
+- rule: q2_sickRU
+  steps:
+  - action: utter_q2RU
+  - intent: sick
+  - action: utter_sickRU
+  - action: utter_q3RU
+
+- rule: q2_sickKG
+  steps:
+  - action: utter_q2KG
+  - intent: sick
+  - action: utter_sickKG
+  - action: utter_q3KG
+
+- rule: q2_soundlesslyRU
+  steps:
+  - action: utter_q2RU
+  - intent: soundlessly
+  - action: utter_soundlesslyRU
+
+- rule: q2_soundlesslyKG
+  steps:
+  - action: utter_q2KG
+  - intent: soundlessly
+  - action: utter_soundlesslyKG
+
+- rule: q2_dontHaveCreditRU
+  steps:
+  - action: utter_q2RU
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditRU
+
+- rule: q2_dontHaveCreditKG
+  steps:
+  - action: utter_q2KG
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditKG
+
+- rule: q2_haveAQuestionRU
+  steps:
+  - action: utter_q2RU
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionRU
+
+- rule: q2_haveAQuestionKG
+  steps:
+  - action: utter_q2KG
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionKG
+
+- rule: q2_appDoesntWorkRU
+  steps:
+  - action: utter_q2RU
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkRU
+  - action: utter_q4RU
+
+- rule: q2_appDoesntWorkKG
+  steps:
+  - action: utter_q2KG
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkKG
+  - action: utter_q4KG
+
+- rule: q2_judgeRU
+  steps:
+  - action: utter_q2RU
+  - intent: judge
+  - action: utter_judgeRU
+  - action: utter_q3RU
+
+- rule: q2_judgeKG
+  steps:
+  - action: utter_q2KG
+  - intent: judge
+  - action: utter_judgeKG
+  - action: utter_q3KG
+
+- rule: q2_adressRU
+  steps:
+  - action: utter_q2RU
+  - intent: adress
+  - action: utter_adressRU
+  - action: utter_q3RU
+
+- rule: q2_adressKG
+  steps:
+  - action: utter_q2KG
+  - intent: adress
+  - action: utter_adressKG
+  - action: utter_q3KG
+
+- rule: q2_whatALoanRU
+  steps:
+  - action: utter_q2RU
+  - intent: whatALoan
+  - action: utter_whatALoanRU
+  - action: utter_q4RU
+
+- rule: q2_whatALoanKG
+  steps:
+  - action: utter_q2KG
+  - intent: whatALoan
+  - action: utter_whatALoanKG
+  - action: utter_q4KG
+
+- rule: q2_detailsRU
+  steps:
+  - action: utter_q2RU
+  - intent: details
+  - action: utter_detailsRU
+  - action: utter_q4KG
+
+- rule: q2_detailsKG
+  steps:
+  - action: utter_q2KG
+  - intent: details
+  - action: utter_detailsKG
+  - action: utter_q4KG
+
+- rule: q2_relativeRU
+  steps:
+  - action: utter_q2RU
+  - intent: relative
+  - action: utter_relativeRU
+
+- rule: q2_relativeKG
+  steps:
+  - action: utter_q2KG
+  - intent: relative
+  - action: utter_relativeKG
+
+- rule: q2_dontHaveRightRU
+  steps:
+  - action: utter_q2RU
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightRU
+  - action: utter_q3RU
+
+- rule: q2_dontHaveRightKG
+  steps:
+  - action: utter_q2KG
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightKG
+  - action: utter_q3KG
+
+- rule: q2_tomorrowRU
+  steps:
+  - action: utter_q2RU
+  - intent: tomorrow
+  - action: utter_tomorrowRU
+  - action: utter_q2RU
+
+- rule: q2_tomorrowKG
+  steps:
+  - action: utter_q2KG
+  - intent: tomorrow
+  - action: utter_tomorrowKG
+  - action: utter_q2KG
+  
+- rule: q2_notCorrectSumRU
+  steps:
+  - action: utter_q2RU
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumRU
+  - action: utter_notCorrectSumRU1
+  - action: utter_notCorrectSumRU2
+  - action: utter_q1RU
+
+- rule: q2_notCorrectSumKG
+  steps:
+  - action: utter_q2KG
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumKG
+  - action: utter_notCorrectSumKG1
+  - action: utter_notCorrectSumKG2
+  - action: utter_q1KG
+
+- rule: q2_whoIsItRU
+  steps:
+  - action: utter_q2RU
+  - intent: whoIsIt
+  - action: utter_whoIsItRU
+  - action: utter_q1RU
+
+- rule: q2_whoIsItKG
+  steps:
+  - action: utter_q2KG
+  - intent: whoIsIt
+  - action: utter_whoIsItKG
+  - action: utter_q1KG
+
+- rule: q2_yesRU
+  steps:
+  - action: utter_q2RU
+  - intent: yes
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q2_yesKG
+  steps:
+  - action: utter_q2KG
+  - intent: yes
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+
+
+- rule: q2_willpayRU
+  steps:
+  - action: utter_q2RU
+  - intent: willpay
+  - action: utter_willpayRU
+
+- rule: q2_willpayKG
+  steps:
+  - action: utter_q2KG
+  - intent: willpay
+  - action: utter_willpayKG
+
+- rule: q2_noRU
+  steps:
+  - action: utter_q2RU
+  - intent: no
+  - action: utter_finalDenyRU
+  - action: utter_q6RU
+
+- rule: q2_noKG
+  steps:
+  - action: utter_q2KG
+  - intent: no
+  - action: utter_finalDenyKG
+  - action: utter_q6KG
+
+
+# q3--------------------------------------------------------------------
+
+- rule: q3_oosRU
+  steps:
+  - action: utter_q3RU
+  - or:
+    - intent: langDetectRU
+    - intent: langDetectKG
+    - intent: changeLangRU
+    - intent: nlu_fallback
+  - action: utter_q3RU
+
+
+- rule: q3_oosKG
+  steps:
+  - action: utter_q3KG
+  - or:
+    - intent: langDetectKG
+    - intent: langDetectRU
+    - intent: changeLangKG
+    - intent: nlu_fallback
+  - action: utter_q3KG
+
+
+- rule: q3_changelangRU
+  steps:
+  - action: utter_q3RU
+  - intent: changeLangKG
+  - action: utter_q3KG
+
+
+- rule: q3_changelangKG
+  steps:
+  - action: utter_q3KG
+  - intent: changeLangRU
+  - action: utter_q3RU
+
+- rule: q3_repeatRU
+  steps:
+  - action: utter_q3RU
+  - intent: repeat
+  - action: utter_q3RU
+
+- rule: q3_repeatKG
+  steps:
+  - action: utter_q3KG
+  - intent: repeat
+  - action: utter_q3KG
+
+
+- rule: q3_noMoneyRU
+  steps:
+  - action: utter_q3RU
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_denyRU
+  - action: utter_q5RU
+
+- rule: q3_noMoneyKG
+  steps:
+  - action: utter_q3KG
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_denyKG
+  - action: utter_q5KG
+
+- rule: q3_notMyCreditRU
+  steps:
+  - action: utter_q3RU
+  - intent: notMyCredit
+  - action: utter_notMyCreditRU
+  - action: utter_q5RU
+
+- rule: q3_notMyCreditKG
+  steps:
+  - action: utter_q3KG
+  - intent: notMyCredit
+  - action: utter_notMyCreditKG
+  - action: utter_q5KG
+
+- rule: q3_knownRU
+  steps:
+  - action: utter_q3RU
+  - intent: known
+  - action: utter_knownRU
+  - action: utter_q5RU
+
+- rule: q3_knownKG
+  steps:
+  - action: utter_q3KG
+  - intent: known
+  - action: utter_knownKG
+  - action: utter_q5KG
+
+- rule: q3_stopCallingMeRU
+  steps:
+  - action: utter_q3RU
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightRU
+  - action: utter_q5RU
+
+- rule: q3_stopCallingMeKG
+  steps:
+  - action: utter_q3KG
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightKG
+  - action: utter_q5KG
+
+- rule: q3_whoDoYouCallRU
+  steps:
+  - action: utter_q3RU
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallRU
+  - action: utter_q5RU
+
+- rule: q3_whoDoYouCallKG
+  steps:
+  - action: utter_q3KG
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallKG
+  - action: utter_q5KG
+  
+- rule: q3_moneyOnCardRU
+  steps:
+  - action: utter_q3RU
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardRU
+  - action: utter_q5RU
+
+- rule: q3_moneyOnCardKG
+  steps:
+  - action: utter_q3KG
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardKG
+  - action: utter_q5KG
+
+- rule: q3_whenRU
+  steps:
+  - action: utter_q3RU
+  - intent: when
+  - action: utter_whenRU
+  - action: utter_q5RU
+
+- rule: q3_whenKG
+  steps:
+  - action: utter_q3KG
+  - intent: when
+  - action: utter_whenKG
+  - action: utter_q5KG
+
+- rule: q3_otherQuestionRU
+  steps:
+  - action: utter_q3RU
+  - intent: otherQuestion
+  - action: utter_otherQuestionRU
+  - action: utter_q5RU
+
+- rule: q3_otherQuestionKG
+  steps:
+  - action: utter_q3KG
+  - intent: otherQuestion
+  - action: utter_otherQuestionKG
+  - action: utter_q5KG
+
+- rule: q3_terminalDoesntWorkRU
+  steps:
+  - action: utter_q3RU
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkRU
+  - action: utter_q5RU
+
+- rule: q3_terminalDoesntWorkKG
+  steps:
+  - action: utter_q3KG
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkKG
+  - action: utter_q5KG
+
+- rule: q3_howMuchRU
+  steps:
+  - action: utter_q3RU
+  - intent: howMuch
+  - action: utter_howMuchRU
+  - action: utter_howMuchRU1
+  - action: utter_q5RU
+
+- rule: q3_howMuchKG
+  steps:
+  - action: utter_q3KG
+  - intent: howMuch
+  - action: utter_howMuchKG
+  - action: utter_howMuchKG1
+  - action: utter_q5KG
+
+- rule: q3_unclearSpeachRU
+  steps:
+  - action: utter_q3RU
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachRU
+
+- rule: q3_unclearSpeachKG
+  steps:
+  - action: utter_q3KG
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachKG
+
+- rule: q3_wrongNumberRU
+  steps:
+  - action: utter_q3RU
+  - or: 
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberRU
+
+- rule: q3_wrongNumberKG
+  steps:
+  - action: utter_q3KG
+  - or:
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberKG
+
+- rule: q3_paidRU
+  steps:
+  - action: utter_q3RU
+  - intent: paid
+  - action: utter_paidRU
+ 
+- rule: q3_paidKG
+  steps:
+  - action: utter_q3KG
+  - intent: paid
+  - action: utter_paidKG
+
+
+- rule: q3_soundlesslyRU
+  steps:
+  - action: utter_q3RU
+  - intent: soundlessly
+  - action: utter_soundlesslyRU
+
+- rule: q3_soundlesslyKG
+  steps:
+  - action: utter_q3KG
+  - intent: soundlessly
+  - action: utter_soundlesslyKG
+
+- rule: q3_dontHaveCreditRU
+  steps:
+  - action: utter_q3RU
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditRU
+
+- rule: q3_dontHaveCreditKG
+  steps:
+  - action: utter_q3KG
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditKG
+
+- rule: q3_haveAQuestionRU
+  steps:
+  - action: utter_q3RU
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionRU
+
+- rule: q3_haveAQuestionKG
+  steps:
+  - action: utter_q3KG
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionKG
+
+- rule: q3_appDoesntWorkRU
+  steps:
+  - action: utter_q3RU
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkRU
+  - action: utter_q5RU
+
+- rule: q3_appDoesntWorkKG
+  steps:
+  - action: utter_q3KG
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkKG
+  - action: utter_q5KG
+
+- rule: q3_judgeRU
+  steps:
+  - action: utter_q3RU
+  - intent: judge
+  - action: utter_judgeRU
+  - action: utter_q5RU
+
+- rule: q3_judgeKG
+  steps:
+  - action: utter_q3KG
+  - intent: judge
+  - action: utter_judgeKG
+  - action: utter_q5KG
+
+- rule: q3_adressRU
+  steps:
+  - action: utter_q3RU
+  - intent: adress
+  - action: utter_adressRU
+  - action: utter_q5RU
+
+- rule: q3_adressKG
+  steps:
+  - action: utter_q3KG
+  - intent: adress
+  - action: utter_adressKG
+  - action: utter_q5KG
+
+- rule: q3_whatALoanRU
+  steps:
+  - action: utter_q3RU
+  - intent: whatALoan
+  - action: utter_whatALoanRU
+  - action: utter_q5RU
+
+- rule: q3_whatALoanKG
+  steps:
+  - action: utter_q3KG
+  - intent: whatALoan
+  - action: utter_whatALoanKG
+  - action: utter_q5KG
+
+- rule: q3_detailsRU
+  steps:
+  - action: utter_q3RU
+  - intent: details
+  - action: utter_detailsRU
+  - action: utter_q5RU
+
+
+- rule: q3_detailsKG
+  steps:
+  - action: utter_q3KG
+  - intent: details
+  - action: utter_detailsKG
+  - action: utter_q5KG
+
+
+- rule: q3_dontHaveRightRU
+  steps:
+  - action: utter_q3RU
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightRU
+  - action: utter_q5RU
+
+- rule: q3_dontHaveRightKG
+  steps:
+  - action: utter_q3KG
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightKG
+  - action: utter_q5KG
+
+- rule: q3_tomorrowRU
+  steps:
+  - action: utter_q3RU
+  - intent: tomorrow
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q3_tomorrowKG
+  steps:
+  - action: utter_q3KG
+  - intent: tomorrow
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+
+  
+- rule: q3_notCorrectSumRU
+  steps:
+  - action: utter_q3RU
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumRU
+  - action: utter_notCorrectSumRU1
+  - action: utter_notCorrectSumRU2
+  - action: utter_q3RU
+
+- rule: q3_notCorrectSumKG
+  steps:
+  - action: utter_q3KG
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumKG
+  - action: utter_notCorrectSumKG1
+  - action: utter_notCorrectSumKG2
+  - action: utter_q3KG
+
+- rule: q3_whoIsItRU
+  steps:
+  - action: utter_q3RU
+  - intent: whoIsIt
+  - action: utter_whoIsItRU
+  - action: utter_q5RU
+
+- rule: q3_whoIsItKG
+  steps:
+  - action: utter_q3KG
+  - intent: whoIsIt
+  - action: utter_whoIsItKG
+  - action: utter_q5KG
+
+- rule: q3_yesRU
+  steps:
+  - action: utter_q3RU
+  - intent: yes
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q3_yesKG
+  steps:
+  - action: utter_q3KG
+  - intent: yes
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+
+- rule: q3_willpayRU
+  steps:
+  - action: utter_q3RU
+  - intent: willpay
+  - action: utter_willpayRU
+
+- rule: q3_willpayKG
+  steps:
+  - action: utter_q3KG
+  - intent: willpay
+  - action: utter_willpayKG
+
+- rule: q3_noRU
+  steps:
+  - action: utter_q3RU
+  - intent: no
+  - action: utter_noRU
+  - action: utter_q7RU
+
+- rule: q3_noKG
+  steps:
+  - action: utter_q3KG
+  - intent: no
+  - action: utter_noKG
+  - action: utter_q7KG
+
+
+# q4--------------------------------------------------------------------
+
+- rule: q4_oosRU
+  steps:
+  - action: utter_q4RU
+  - or:
+    - intent: langDetectRU
+    - intent: langDetectKG
+    - intent: changeLangRU
+    - intent: nlu_fallback
+  - action: utter_q4RU
+
+
+- rule: q4_oosKG
+  steps:
+  - action: utter_q4KG
+  - or:
+    - intent: langDetectKG
+    - intent: langDetectRU
+    - intent: changeLangKG
+    - intent: nlu_fallback
+  - action: utter_q4KG
+
+
+- rule: q4_changelangRU
+  steps:
+  - action: utter_q4RU
+  - intent: changeLangKG
+  - action: utter_q4KG
+
+
+- rule: q4_changelangKG
+  steps:
+  - action: utter_q4KG
+  - intent: changeLangRU
+  - action: utter_q4RU
+
+- rule: q4_repeatRU
+  steps:
+  - action: utter_q4RU
+  - intent: repeat
+  - action: utter_q4RU
+
+- rule: q4_repeatKG
+  steps:
+  - action: utter_q4KG
+  - intent: repeat
+  - action: utter_q4KG
+
+- rule: q4_noMoneyRU
+  steps:
+  - action: utter_q4RU
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_finalDenyRU
+  - action: utter_q6RU
+
+- rule: q4_noMoneyKG
+  steps:
+  - action: utter_q4KG
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_finalDenyKG
+  - action: utter_q6KG 
+
+
+- rule: q4_notMyCreditRU
+  steps:
+  - action: utter_q4RU
+  - intent: notMyCredit
+  - action: utter_notMyCreditRU
+  - action: utter_q5RU
+
+- rule: q4_notMyCreditKG
+  steps:
+  - action: utter_q4KG
+  - intent: notMyCredit
+  - action: utter_notMyCreditKG
+  - action: utter_q5KG
+
+- rule: q4_knownRU
+  steps:
+  - action: utter_q4RU
+  - intent: known
+  - action: utter_knownRU
+  - action: utter_q3RU
+
+- rule: q4_knownKG
+  steps:
+  - action: utter_q4KG
+  - intent: known
+  - action: utter_knownKG
+  - action: utter_q3KG
+
+- rule: q4_stopCallingMeRU
+  steps:
+  - action: utter_q4RU
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightRU
+  - action: utter_q3RU
+
+- rule: q4_stopCallingMeKG
+  steps:
+  - action: utter_q4KG
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightKG
+  - action: utter_q3KG
+
+- rule: q4_whoDoYouCallRU
+  steps:
+  - action: utter_q4RU
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallRU
+  - action: utter_q3RU
+
+- rule: q4_whoDoYouCallKG
+  steps:
+  - action: utter_q4KG
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallKG
+  - action: utter_q3KG
+  
+- rule: q4_moneyOnCardRU
+  steps:
+  - action: utter_q4RU
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardRU
+  - action: utter_q3RU
+
+- rule: q4_moneyOnCardKG
+  steps:
+  - action: utter_q4KG
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardKG
+  - action: utter_q3KG
+
+- rule: q4_whenRU
+  steps:
+  - action: utter_q4RU
+  - intent: when
+  - action: utter_whenRU
+  - action: utter_q3RU
+
+- rule: q4_whenKG
+  steps:
+  - action: utter_q4KG
+  - intent: when
+  - action: utter_whenKG
+  - action: utter_q3KG
+
+- rule: q4_otherQuestionRU
+  steps:
+  - action: utter_q4RU
+  - intent: otherQuestion
+  - action: utter_otherQuestionRU
+  - action: utter_q3RU
+
+- rule: q4_otherQuestionKG
+  steps:
+  - action: utter_q4KG
+  - intent: otherQuestion
+  - action: utter_otherQuestionKG
+  - action: utter_q3KG
+
+- rule: q4_terminalDoesntWorkRU
+  steps:
+  - action: utter_q4RU
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkRU
+  - action: utter_q3RU
+
+- rule: q4_terminalDoesntWorkKG
+  steps:
+  - action: utter_q4KG
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkKG
+  - action: utter_q3KG
+
+- rule: q4_howMuchRU
+  steps:
+  - action: utter_q4RU
+  - intent: howMuch
+  - action: utter_howMuchRU
+  - action: utter_q3RU
+
+- rule: q4_howMuchKG
+  steps:
+  - action: utter_q4KG
+  - intent: howMuch
+  - action: utter_howMuchKG
+  - action: utter_q3KG
+
+- rule: q4_unclearSpeachRU
+  steps:
+  - action: utter_q4RU
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachRU
+
+
+- rule: q4_unclearSpeachKG
+  steps:
+  - action: utter_q4KG
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachKG
+
+
+- rule: q4_wrongNumberRU
+  steps:
+  - action: utter_q4RU
+  - or:
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberRU
+ 
+- rule: q4_wrongNumberKG
+  steps:
+  - action: utter_q4KG
+  - or:
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberKG
+
+- rule: q4_paidRU
+  steps:
+  - action: utter_q4RU
+  - intent: paid
+  - action: utter_paidRU
+ 
+- rule: q4_paidKG
+  steps:
+  - action: utter_q4KG
+  - intent: paid
+  - action: utter_paidKG
+
+- rule: q4_soundlesslyRU
+  steps:
+  - action: utter_q4RU
+  - intent: soundlessly
+  - action: utter_soundlesslyRU
+
+- rule: q4_soundlesslyKG
+  steps:
+  - action: utter_q4KG
+  - intent: soundlessly
+  - action: utter_soundlesslyKG
+
+- rule: q4_dontHaveCreditRU
+  steps:
+  - action: utter_q4RU
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditRU
+
+- rule: q4_dontHaveCreditKG
+  steps:
+  - action: utter_q4KG
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditKG
+
+- rule: q4_haveAQuestionRU
+  steps:
+  - action: utter_q4RU
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionRU
+
+- rule: q4_haveAQuestionKG
+  steps:
+  - action: utter_q4KG
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionKG
+
+- rule: q4_appDoesntWorkRU
+  steps:
+  - action: utter_q4RU
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkRU
+  - action: utter_q3RU
+
+- rule: q4_appDoesntWorkKG
+  steps:
+  - action: utter_q4KG
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkKG
+  - action: utter_q3KG
+
+- rule: q4_judgeRU
+  steps:
+  - action: utter_q4RU
+  - intent: judge
+  - action: utter_judgeRU
+  - action: utter_q3RU
+
+- rule: q4_judgeKG
+  steps:
+  - action: utter_q4KG
+  - intent: judge
+  - action: utter_judgeKG
+  - action: utter_q3KG
+
+- rule: q4_adressRU
+  steps:
+  - action: utter_q4RU
+  - intent: adress
+  - action: utter_adressRU
+  - action: utter_q3RU
+
+- rule: q4_adressKG
+  steps:
+  - action: utter_q4KG
+  - intent: adress
+  - action: utter_adressKG
+  - action: utter_q3KG
+
+- rule: q4_whatALoanRU
+  steps:
+  - action: utter_q4RU
+  - intent: whatALoan
+  - action: utter_whatALoanRU
+  - action: utter_q3RU
+
+- rule: q4_whatALoanKG
+  steps:
+  - action: utter_q4KG
+  - intent: whatALoan
+  - action: utter_whatALoanKG
+  - action: utter_q3KG
+
+- rule: q4_detailsRU
+  steps:
+  - action: utter_q4RU
+  - intent: details
+  - action: utter_detailsRU
+  - action: utter_q3RU
+
+- rule: q4_detailsKG
+  steps:
+  - action: utter_q4KG
+  - intent: details
+  - action: utter_detailsKG
+  - action: utter_q3KG
+
+
+- rule: q4_dontHaveRightRU
+  steps:
+  - action: utter_q4RU
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightRU
+  - action: utter_q3RU
+
+- rule: q4_dontHaveRightKG
+  steps:
+  - action: utter_q4KG
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightKG
+  - action: utter_q3KG
+
+- rule: q4_tomorrowRU
+  steps:
+  - action: utter_q4RU
+  - intent: tomorrow
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q4_tomorrowKG
+  steps:
+  - action: utter_q4KG
+  - intent: tomorrow
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+
+  
+- rule: q4_notCorrectSumRU
+  steps:
+  - action: utter_q4RU
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumRU
+  - action: utter_notCorrectSumRU1
+  - action: utter_notCorrectSumRU2
+  - action: utter_q3RU
+
+- rule: q4_notCorrectSumKG
+  steps:
+  - action: utter_q4KG
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumKG
+  - action: utter_notCorrectSumKG1
+  - action: utter_notCorrectSumKG2
+  - action: utter_q3KG
+
+- rule: q4_whoIsItRU
+  steps:
+  - action: utter_q4RU
+  - intent: whoIsIt
+  - action: utter_whoIsItRU
+  - action: utter_q3RU
+
+- rule: q4_whoIsItKG
+  steps:
+  - action: utter_q4KG
+  - intent: whoIsIt
+  - action: utter_whoIsItKG
+  - action: utter_q3KG
+
+- rule: q4_yesRU
+  steps:
+  - action: utter_q4RU
+  - intent: yes
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q4_yesKG
+  steps:
+  - action: utter_q4KG
+  - intent: yes
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+
+
+- rule: q4_willpayRU
+  steps:
+  - action: utter_q4RU
+  - intent: willpay
+  - action: utter_willpayRU
+
+- rule: q4_willpayKG
+  steps:
+  - action: utter_q4KG
+  - intent: willpay
+  - action: utter_willpayKG
+
+- rule: q4_noRU
+  steps:
+  - action: utter_q4RU
+  - intent: no
+  - action: utter_finalNoRU
+
+- rule: q4_noKG
+  steps:
+  - action: utter_q4KG
+  - intent: no
+  - action: utter_finalNoKG
+
+
+
+
+# q5--------------------------------------------------------------------
+
+
+- rule: q5_oosRU
+  steps:
+  - action: utter_q5RU
+  - or:
+    - intent: langDetectRU
+    - intent: langDetectKG
+    - intent: changeLangRU
+    - intent: nlu_fallback
+  - action: utter_q5RU
+
+
+- rule: q5_oosKG
+  steps:
+  - action: utter_q5KG
+  - or:
+    - intent: langDetectKG
+    - intent: langDetectRU
+    - intent: changeLangKG
+    - intent: nlu_fallback
+  - action: utter_q5KG
+
+
+- rule: q5_changelangRU
+  steps:
+  - action: utter_q5RU
+  - intent: changeLangKG
+  - action: utter_q5KG
+
+
+- rule: q5_changelangKG
+  steps:
+  - action: utter_q5KG
+  - intent: changeLangRU
+  - action: utter_q5RU
+
+- rule: q5_repeatRU
+  steps:
+  - action: utter_q5RU
+  - intent: repeat
+  - action: utter_q5RU
+
+- rule: q5_repeatKG
+  steps:
+  - action: utter_q5KG
+  - intent: repeat
+  - action: utter_q5KG
+
+- rule: q5_noMoneyRU
+  steps:
+  - action: utter_q5RU
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_noRU
+  - action: utter_q7RU
+
+- rule: q5_noMoneyKG
+  steps:
+  - action: utter_q5KG
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_noKG
+  - action: utter_q7KG 
+
+
+- rule: q5_notMyCreditRU
+  steps:
+  - action: utter_q5RU
+  - intent: notMyCredit
+  - action: utter_notMyCreditRU
+  - action: utter_q5RU
+
+- rule: q5_notMyCreditKG
+  steps:
+  - action: utter_q5KG
+  - intent: notMyCredit
+  - action: utter_notMyCreditKG
+  - action: utter_q5KG
+
+- rule: q5_knownRU
+  steps:
+  - action: utter_q5RU
+  - intent: known
+  - action: utter_knownRU
+  - action: utter_q3RU
+
+- rule: q5_knownKG
+  steps:
+  - action: utter_q5KG
+  - intent: known
+  - action: utter_knownKG
+  - action: utter_q3KG
+
+- rule: q5_stopCallingMeRU
+  steps:
+  - action: utter_q5RU
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightRU
+  - action: utter_q3RU
+
+- rule: q5_stopCallingMeKG
+  steps:
+  - action: utter_q5KG
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightKG
+  - action: utter_q3KG
+
+- rule: q5_whoDoYouCallRU
+  steps:
+  - action: utter_q5RU
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallRU
+  - action: utter_q3RU
+
+- rule: q5_whoDoYouCallKG
+  steps:
+  - action: utter_q5KG
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallKG
+  - action: utter_q3KG
+  
+- rule: q5_moneyOnCardRU
+  steps:
+  - action: utter_q5RU
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardRU
+  - action: utter_q3RU
+
+- rule: q5_moneyOnCardKG
+  steps:
+  - action: utter_q5KG
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardKG
+  - action: utter_q3KG
+
+- rule: q5_whenRU
+  steps:
+  - action: utter_q5RU
+  - intent: when
+  - action: utter_whenRU
+  - action: utter_q3RU
+
+- rule: q5_whenKG
+  steps:
+  - action: utter_q5KG
+  - intent: when
+  - action: utter_whenKG
+  - action: utter_q3KG
+
+- rule: q5_otherQuestionRU
+  steps:
+  - action: utter_q5RU
+  - intent: otherQuestion
+  - action: utter_otherQuestionRU
+  - action: utter_q3RU
+
+- rule: q5_otherQuestionKG
+  steps:
+  - action: utter_q5KG
+  - intent: otherQuestion
+  - action: utter_otherQuestionKG
+  - action: utter_q3KG
+
+- rule: q5_terminalDoesntWorkRU
+  steps:
+  - action: utter_q5RU
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkRU
+  - action: utter_q3RU
+
+- rule: q5_terminalDoesntWorkKG
+  steps:
+  - action: utter_q5KG
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkKG
+  - action: utter_q3KG
+
+- rule: q5_howMuchRU
+  steps:
+  - action: utter_q5RU
+  - intent: howMuch
+  - action: utter_howMuchRU
+  - action: utter_howMuchRU1
+  - action: utter_q3RU
+
+- rule: q5_howMuchKG
+  steps:
+  - action: utter_q5KG
+  - intent: howMuch
+  - action: utter_howMuchKG
+  - action: utter_howMuchKG1
+  - action: utter_q3KG
+
+- rule: q5_unclearSpeachRU
+  steps:
+  - action: utter_q5RU
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachRU
+
+- rule: q5_unclearSpeachKG
+  steps:
+  - action: utter_q5KG
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachKG
+
+- rule: q5_wrongNumberRU
+  steps:
+  - action: utter_q5RU
+  - or:
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberRU
+ 
+- rule: q5_wrongNumberKG
+  steps:
+  - action: utter_q5KG
+  - or:
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberKG
+
+- rule: q5_paidRU
+  steps:
+  - action: utter_q5RU
+  - intent: paid
+  - action: utter_paidRU
+ 
+- rule: q5_paidKG
+  steps:
+  - action: utter_q5KG
+  - intent: paid
+  - action: utter_paidKG
+
+
+- rule: q5_soundlesslyRU
+  steps:
+  - action: utter_q5RU
+  - intent: soundlessly
+  - action: utter_soundlesslyRU
+
+- rule: q5_soundlesslyKG
+  steps:
+  - action: utter_q5KG
+  - intent: soundlessly
+  - action: utter_soundlesslyKG
+
+- rule: q5_dontHaveCreditRU
+  steps:
+  - action: utter_q5RU
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditRU
+
+- rule: q5_dontHaveCreditKG
+  steps:
+  - action: utter_q5KG
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditKG
+
+- rule: q5_haveAQuestionRU
+  steps:
+  - action: utter_q5RU
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionRU
+
+- rule: q5_haveAQuestionKG
+  steps:
+  - action: utter_q5KG
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionKG
+
+- rule: q5_appDoesntWorkRU
+  steps:
+  - action: utter_q5RU
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkRU
+  - action: utter_q3RU
+
+- rule: q5_appDoesntWorkKG
+  steps:
+  - action: utter_q5KG
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkKG
+  - action: utter_q3KG
+
+- rule: q5_judgeRU
+  steps:
+  - action: utter_q5RU
+  - intent: judge
+  - action: utter_judgeRU
+  - action: utter_q3RU
+
+- rule: q5_judgeKG
+  steps:
+  - action: utter_q5KG
+  - intent: judge
+  - action: utter_judgeKG
+  - action: utter_q3KG
+
+- rule: q5_adressRU
+  steps:
+  - action: utter_q5RU
+  - intent: adress
+  - action: utter_adressRU
+  - action: utter_q3RU
+
+- rule: q5_adressKG
+  steps:
+  - action: utter_q5KG
+  - intent: adress
+  - action: utter_adressKG
+  - action: utter_q3KG
+
+- rule: q5_whatALoanRU
+  steps:
+  - action: utter_q5RU
+  - intent: whatALoan
+  - action: utter_whatALoanRU
+  - action: utter_q3RU
+
+- rule: q5_whatALoanKG
+  steps:
+  - action: utter_q5KG
+  - intent: whatALoan
+  - action: utter_whatALoanKG
+  - action: utter_q3KG
+
+- rule: q5_detailsRU
+  steps:
+  - action: utter_q5RU
+  - intent: details
+  - action: utter_detailsRU
+  - action: utter_q3RU
+
+- rule: q5_detailsKG
+  steps:
+  - action: utter_q5KG
+  - intent: details
+  - action: utter_detailsKG
+  - action: utter_q3KG
+
+
+- rule: q5_dontHaveRightRU
+  steps:
+  - action: utter_q5RU
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightRU
+  - action: utter_q3RU
+
+- rule: q5_dontHaveRightKG
+  steps:
+  - action: utter_q5KG
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightKG
+  - action: utter_q3KG
+
+- rule: q5_tomorrowRU
+  steps:
+  - action: utter_q5RU
+  - intent: tomorrow
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q5_tomorrowKG
+  steps:
+  - action: utter_q5KG
+  - intent: tomorrow
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+
+  
+- rule: q5_notCorrectSumRU
+  steps:
+  - action: utter_q5RU
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumRU
+  - action: utter_notCorrectSumRU1
+  - action: utter_notCorrectSumRU2
+  - action: utter_q3RU
+
+- rule: q5_notCorrectSumKG
+  steps:
+  - action: utter_q5KG
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumKG
+  - action: utter_notCorrectSumKG1
+  - action: utter_notCorrectSumKG2
+  - action: utter_q3KG
+
+- rule: q5_whoIsItRU
+  steps:
+  - action: utter_q5RU
+  - intent: whoIsIt
+  - action: utter_whoIsItRU
+  - action: utter_q3RU
+
+- rule: q5_whoIsItKG
+  steps:
+  - action: utter_q5KG
+  - intent: whoIsIt
+  - action: utter_whoIsItKG
+  - action: utter_q3KG
+
+- rule: q5_yesRU
+  steps:
+  - action: utter_q5RU
+  - intent: yes
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q5_yesKG
+  steps:
+  - action: utter_q5KG
+  - intent: yes
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+
+- rule: q5_willpayRU
+  steps:
+  - action: utter_q5RU
+  - intent: willpay
+  - action: utter_willpayRU
+
+- rule: q5_willpayKG
+  steps:
+  - action: utter_q5KG
+  - intent: willpay
+  - action: utter_willpayKG
+
+- rule: q5_noRU
+  steps:
+  - action: utter_q5RU
+  - intent: no
+  - action: utter_finalNoRU
+
+- rule: q5_noKG
+  steps:
+  - action: utter_q5KG
+  - intent: no
+  - action: utter_finalNoKG
+
+
+
+
+# q6--------------------------------------------------------------------
+
+
+- rule: q6_oosRU
+  steps:
+  - action: utter_q6RU
+  - or:
+    - intent: langDetectRU
+    - intent: langDetectKG
+    - intent: changeLangRU
+    - intent: nlu_fallback
+  - action: utter_q6RU
+
+
+- rule: q6_oosKG
+  steps:
+  - action: utter_q6KG
+  - or:
+    - intent: langDetectKG
+    - intent: langDetectRU
+    - intent: changeLangKG
+    - intent: nlu_fallback
+  - action: utter_q6KG
+
+
+- rule: q6_changelangRU
+  steps:
+  - action: utter_q6RU
+  - intent: changeLangKG
+  - action: utter_q6KG
+
+
+- rule: q6_changelangKG
+  steps:
+  - action: utter_q6KG
+  - intent: changeLangRU
+  - action: utter_q6RU
+
+- rule: q6_repeatRU
+  steps:
+  - action: utter_q6RU
+  - intent: repeat
+  - action: utter_q6RU
+
+- rule: q6_repeatKG
+  steps:
+  - action: utter_q6KG
+  - intent: repeat
+  - action: utter_q6KG
+
+- rule: q6_noMoneyRU
+  steps:
+  - action: utter_q6RU
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_finalNoRU
+  
+
+- rule: q6_noMoneyKG
+  steps:
+  - action: utter_q6KG
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_finalNoKG
+
+
+- rule: q6_notMyCreditRU
+  steps:
+  - action: utter_q6RU
+  - intent: notMyCredit
+  - action: utter_notMyCreditRU
+  - action: utter_q5RU
+
+- rule: q6_notMyCreditKG
+  steps:
+  - action: utter_q6KG
+  - intent: notMyCredit
+  - action: utter_notMyCreditKG
+  - action: utter_q5KG
+
+- rule: q6_knownRU
+  steps:
+  - action: utter_q6RU
+  - intent: known
+  - action: utter_knownRU
+  - action: utter_q6RU
+
+- rule: q6_knownKG
+  steps:
+  - action: utter_q6KG
+  - intent: known
+  - action: utter_knownKG
+  - action: utter_q6KG
+
+- rule: q6_stopCallingMeRU
+  steps:
+  - action: utter_q6RU
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightRU
+  - action: utter_q6RU
+
+- rule: q6_stopCallingMeKG
+  steps:
+  - action: utter_q6KG
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightKG
+  - action: utter_q6KG
+
+- rule: q6_whoDoYouCallRU
+  steps:
+  - action: utter_q6RU
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallRU
+  - action: utter_q6RU
+
+- rule: q6_whoDoYouCallKG
+  steps:
+  - action: utter_q6KG
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallKG
+  - action: utter_q6KG
+  
+- rule: q6_moneyOnCardRU
+  steps:
+  - action: utter_q6RU
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardRU
+  - action: utter_q6RU
+
+- rule: q6_moneyOnCardKG
+  steps:
+  - action: utter_q6KG
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardKG
+  - action: utter_q6KG
+
+- rule: q6_whenRU
+  steps:
+  - action: utter_q6RU
+  - intent: when
+  - action: utter_whenRU
+  - action: utter_q6RU
+
+- rule: q6_whenKG
+  steps:
+  - action: utter_q6KG
+  - intent: when
+  - action: utter_whenKG
+  - action: utter_q6KG
+
+- rule: q6_otherQuestionRU
+  steps:
+  - action: utter_q6RU
+  - intent: otherQuestion
+  - action: utter_otherQuestionRU
+  - action: utter_q6RU
+
+- rule: q6_otherQuestionKG
+  steps:
+  - action: utter_q6KG
+  - intent: otherQuestion
+  - action: utter_otherQuestionKG
+  - action: utter_q6KG
+
+- rule: q6_terminalDoesntWorkRU
+  steps:
+  - action: utter_q6RU
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkRU
+  - action: utter_q6RU
+
+- rule: q6_terminalDoesntWorkKG
+  steps:
+  - action: utter_q6KG
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkKG
+  - action: utter_q6KG
+
+- rule: q6_howMuchRU
+  steps:
+  - action: utter_q6RU
+  - intent: howMuch
+  - action: utter_howMuchRU
+  - action: utter_howMuchRU1
+  - action: utter_q6RU
+
+- rule: q6_howMuchKG
+  steps:
+  - action: utter_q6KG
+  - intent: howMuch
+  - action: utter_howMuchKG
+  - action: utter_howMuchKG1
+  - action: utter_q6KG
+
+- rule: q6_unclearSpeachRU
+  steps:
+  - action: utter_q6RU
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachRU
+
+- rule: q6_unclearSpeachKG
+  steps:
+  - action: utter_q6KG
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachKG
+
+- rule: q6_wrongNumberRU
+  steps:
+  - action: utter_q6RU
+  - or:
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberRU
+ 
+- rule: q6_wrongNumberKG
+  steps:
+  - action: utter_q6KG
+  - or:
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberKG
+
+- rule: q6_paidRU
+  steps:
+  - action: utter_q6RU
+  - intent: paid
+  - action: utter_paidRU
+ 
+- rule: q6_paidKG
+  steps:
+  - action: utter_q6KG
+  - intent: paid
+  - action: utter_paidKG
+
+- rule: q6_soundlesslyRU
+  steps:
+  - action: utter_q6RU
+  - intent: soundlessly
+  - action: utter_soundlesslyRU
+
+- rule: q6_soundlesslyKG
+  steps:
+  - action: utter_q6KG
+  - intent: soundlessly
+  - action: utter_soundlesslyKG
+
+- rule: q6_dontHaveCreditRU
+  steps:
+  - action: utter_q6RU
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditRU
+
+- rule: q6_dontHaveCreditKG
+  steps:
+  - action: utter_q6KG
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditKG
+
+- rule: q6_haveAQuestionRU
+  steps:
+  - action: utter_q6RU
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionRU
+
+- rule: q6_haveAQuestionKG
+  steps:
+  - action: utter_q6KG
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionKG
+
+- rule: q6_appDoesntWorkRU
+  steps:
+  - action: utter_q6RU
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkRU
+  - action: utter_q6RU
+
+- rule: q6_appDoesntWorkKG
+  steps:
+  - action: utter_q6KG
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkKG
+  - action: utter_q6KG
+
+- rule: q6_judgeRU
+  steps:
+  - action: utter_q6RU
+  - intent: judge
+  - action: utter_judgeRU
+  - action: utter_q6RU
+
+- rule: q6_judgeKG
+  steps:
+  - action: utter_q6KG
+  - intent: judge
+  - action: utter_judgeKG
+  - action: utter_q6KG
+
+- rule: q6_adressRU
+  steps:
+  - action: utter_q6RU
+  - intent: adress
+  - action: utter_adressRU
+  - action: utter_q6RU
+
+- rule: q6_adressKG
+  steps:
+  - action: utter_q6KG
+  - intent: adress
+  - action: utter_adressKG
+  - action: utter_q6KG
+
+- rule: q6_whatALoanRU
+  steps:
+  - action: utter_q6RU
+  - intent: whatALoan
+  - action: utter_whatALoanRU
+  - action: utter_q6RU
+
+- rule: q6_whatALoanKG
+  steps:
+  - action: utter_q6KG
+  - intent: whatALoan
+  - action: utter_whatALoanKG
+  - action: utter_q6KG
+
+- rule: q6_detailsRU
+  steps:
+  - action: utter_q6RU
+  - intent: details
+  - action: utter_detailsRU
+  - action: utter_q6RU
+
+
+- rule: q6_detailsKG
+  steps:
+  - action: utter_q6KG
+  - intent: details
+  - action: utter_detailsKG
+  - action: utter_q6KG
+
+
+- rule: q6_dontHaveRightRU
+  steps:
+  - action: utter_q6RU
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightRU
+  - action: utter_q6RU
+
+- rule: q6_dontHaveRightKG
+  steps:
+  - action: utter_q6KG
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightKG
+  - action: utter_q6KG
+
+- rule: q6_tomorrowRU
+  steps:
+  - action: utter_q6RU
+  - intent: tomorrow
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q6_tomorrowKG
+  steps:
+  - action: utter_q6KG
+  - intent: tomorrow
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+
+  
+- rule: q6_notCorrectSumRU
+  steps:
+  - action: utter_q6RU
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumRU
+  - action: utter_notCorrectSumRU1
+  - action: utter_notCorrectSumRU2
+  - action: utter_q6RU
+
+- rule: q6_notCorrectSumKG
+  steps:
+  - action: utter_q6KG
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumKG
+  - action: utter_notCorrectSumKG1
+  - action: utter_notCorrectSumKG2
+  - action: utter_q6KG
+
+- rule: q6_whoIsItRU
+  steps:
+  - action: utter_q6RU
+  - intent: whoIsIt
+  - action: utter_whoIsItRU
+  - action: utter_q6RU
+
+- rule: q6_whoIsItKG
+  steps:
+  - action: utter_q6KG
+  - intent: whoIsIt
+  - action: utter_whoIsItKG
+  - action: utter_q6KG
+
+- rule: q6_yesRU
+  steps:
+  - action: utter_q6RU
+  - intent: yes
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q6_yesKG
+  steps:
+  - action: utter_q6KG
+  - intent: yes
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+
+
+- rule: q6_willpayRU
+  steps:
+  - action: utter_q6RU
+  - intent: willpay
+  - action: utter_willpayRU
+
+- rule: q6_willpayKG
+  steps:
+  - action: utter_q6KG
+  - intent: willpay
+  - action: utter_willpayKG
+
+- rule: q6_noRU
+  steps:
+  - action: utter_q6RU
+  - intent: no
+  - action: utter_finalNoRU
+
+- rule: q6_noKG
+  steps:
+  - action: utter_q6KG
+  - intent: no
+  - action: utter_finalNoKG
+
+
+
+
+# q7--------------------------------------------------------------------
+
+- rule: q7_oosRU
+  steps:
+  - action: utter_q7RU
+  - or:
+    - intent: langDetectRU
+    - intent: langDetectKG
+    - intent: changeLangRU
+    - intent: nlu_fallback
+  - action: utter_q7RU
+
+
+- rule: q7_oosKG
+  steps:
+  - action: utter_q7KG
+  - or:
+    - intent: langDetectKG
+    - intent: langDetectRU
+    - intent: changeLangKG
+    - intent: nlu_fallback
+  - action: utter_q7KG
+
+
+- rule: q7_changelangRU
+  steps:
+  - action: utter_q7RU
+  - intent: changeLangKG
+  - action: utter_q7KG
+
+
+- rule: q7_changelangKG
+  steps:
+  - action: utter_q7KG
+  - intent: changeLangRU
+  - action: utter_q7RU
+
+- rule: q7_repeatRU
+  steps:
+  - action: utter_q7RU
+  - intent: repeat
+  - action: utter_q7RU
+
+- rule: q7_repeatKG
+  steps:
+  - action: utter_q7KG
+  - intent: repeat
+  - action: utter_q7KG
+
+- rule: q7_noMoneyRU
+  steps:
+  - action: utter_q7RU
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_finalNoRU
+  
+
+- rule: q7_noMoneyKG
+  steps:
+  - action: utter_q7KG
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_finalNoKG
+
+
+- rule: q7_notMyCreditRU
+  steps:
+  - action: utter_q7RU
+  - intent: notMyCredit
+  - action: utter_notMyCreditRU
+  - action: utter_q5RU
+
+- rule: q7_notMyCreditKG
+  steps:
+  - action: utter_q7KG
+  - intent: notMyCredit
+  - action: utter_notMyCreditKG
+  - action: utter_q5KG
+
+- rule: q7_knownRU
+  steps:
+  - action: utter_q7RU
+  - intent: known
+  - action: utter_knownRU
+  - action: utter_q7RU
+
+- rule: q7_knownKG
+  steps:
+  - action: utter_q7KG
+  - intent: known
+  - action: utter_knownKG
+  - action: utter_q7KG
+
+
+- rule: q7_stopCallingMeRU
+  steps:
+  - action: utter_q7RU
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightRU
+  - action: utter_q7RU
+
+- rule: q7_stopCallingMeKG
+  steps:
+  - action: utter_q7KG
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightKG
+  - action: utter_q7KG
+
+- rule: q7_whoDoYouCallRU
+  steps:
+  - action: utter_q7RU
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallRU
+  - action: utter_q7RU
+
+- rule: q7_whoDoYouCallKG
+  steps:
+  - action: utter_q7KG
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallKG
+  - action: utter_q7KG
+  
+- rule: q7_moneyOnCardRU
+  steps:
+  - action: utter_q7RU
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardRU
+  - action: utter_q7RU
+
+- rule: q7_moneyOnCardKG
+  steps:
+  - action: utter_q7KG
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardKG
+  - action: utter_q7KG
+
+- rule: q7_whenRU
+  steps:
+  - action: utter_q7RU
+  - intent: when
+  - action: utter_whenRU
+  - action: utter_q7RU
+
+- rule: q7_whenKG
+  steps:
+  - action: utter_q7KG
+  - intent: when
+  - action: utter_whenKG
+  - action: utter_q7KG
+
+- rule: q7_otherQuestionRU
+  steps:
+  - action: utter_q7RU
+  - intent: otherQuestion
+  - action: utter_otherQuestionRU
+  - action: utter_q7RU
+
+- rule: q7_otherQuestionKG
+  steps:
+  - action: utter_q7KG
+  - intent: otherQuestion
+  - action: utter_otherQuestionKG
+  - action: utter_q7KG
+
+- rule: q7_terminalDoesntWorkRU
+  steps:
+  - action: utter_q7RU
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkRU
+  - action: utter_q7RU
+
+- rule: q7_terminalDoesntWorkKG
+  steps:
+  - action: utter_q7KG
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkKG
+  - action: utter_q7KG
+
+- rule: q7_howMuchRU
+  steps:
+  - action: utter_q7RU
+  - intent: howMuch
+  - action: utter_howMuchRU
+  - action: utter_howMuchRU1
+  - action: utter_q7RU
+
+- rule: q7_howMuchKG
+  steps:
+  - action: utter_q7KG
+  - intent: howMuch
+  - action: utter_howMuchKG
+  - action: utter_howMuchKG1
+  - action: utter_q7KG
+
+- rule: q7_unclearSpeachRU
+  steps:
+  - action: utter_q7RU
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachRU
+
+- rule: q7_unclearSpeachKG
+  steps:
+  - action: utter_q7KG
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachKG
+
+- rule: q7_wrongNumberRU
+  steps:
+  - action: utter_q7RU
+  - or:
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberRU
+ 
+- rule: q7_wrongNumberKG
+  steps:
+  - action: utter_q7KG
+  - or:
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberKG
+
+- rule: q7_paidRU
+  steps:
+  - action: utter_q7RU
+  - intent: paid
+  - action: utter_paidRU
+ 
+- rule: q7_paidKG
+  steps:
+  - action: utter_q7KG
+  - intent: paid
+  - action: utter_paidKG
+
+- rule: q7_soundlesslyRU
+  steps:
+  - action: utter_q7RU
+  - intent: soundlessly
+  - action: utter_soundlesslyRU
+
+- rule: q7_soundlesslyKG
+  steps:
+  - action: utter_q7KG
+  - intent: soundlessly
+  - action: utter_soundlesslyKG
+
+- rule: q7_dontHaveCreditRU
+  steps:
+  - action: utter_q7RU
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditRU
+
+- rule: q7_dontHaveCreditKG
+  steps:
+  - action: utter_q7KG
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditKG
+
+- rule: q7_haveAQuestionRU
+  steps:
+  - action: utter_q7RU
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionRU
+
+- rule: q7_haveAQuestionKG
+  steps:
+  - action: utter_q7KG
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionKG
+
+- rule: q7_appDoesntWorkRU
+  steps:
+  - action: utter_q7RU
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkRU
+  - action: utter_q7RU
+
+- rule: q7_appDoesntWorkKG
+  steps:
+  - action: utter_q7KG
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkKG
+  - action: utter_q7KG
+
+- rule: q7_judgeRU
+  steps:
+  - action: utter_q7RU
+  - intent: judge
+  - action: utter_judgeRU
+  - action: utter_q7RU
+
+- rule: q7_judgeKG
+  steps:
+  - action: utter_q7KG
+  - intent: judge
+  - action: utter_judgeKG
+  - action: utter_q7KG
+
+- rule: q7_adressRU
+  steps:
+  - action: utter_q7RU
+  - intent: adress
+  - action: utter_adressRU
+  - action: utter_q7RU
+
+- rule: q7_adressKG
+  steps:
+  - action: utter_q7KG
+  - intent: adress
+  - action: utter_adressKG
+  - action: utter_q7KG
+
+- rule: q7_whatALoanRU
+  steps:
+  - action: utter_q7RU
+  - intent: whatALoan
+  - action: utter_whatALoanRU
+  - action: utter_q7RU
+
+- rule: q7_whatALoanKG
+  steps:
+  - action: utter_q7KG
+  - intent: whatALoan
+  - action: utter_whatALoanKG
+  - action: utter_q7KG
+
+- rule: q7_detailsRU
+  steps:
+  - action: utter_q7RU
+  - intent: details
+  - action: utter_detailsRU
+  - action: utter_q7RU
+
+
+- rule: q7_detailsKG
+  steps:
+  - action: utter_q7KG
+  - intent: details
+  - action: utter_detailsKG
+  - action: utter_q7KG
+
+
+- rule: q7_dontHaveRightRU
+  steps:
+  - action: utter_q7RU
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightRU
+  - action: utter_q7RU
+
+- rule: q7_dontHaveRightKG
+  steps:
+  - action: utter_q7KG
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightKG
+  - action: utter_q7KG
+
+- rule: q7_tomorrowRU
+  steps:
+  - action: utter_q7RU
+  - intent: tomorrow
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q7_tomorrowKG
+  steps:
+  - action: utter_q7KG
+  - intent: tomorrow
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+ 
+  
+- rule: q7_notCorrectSumRU
+  steps:
+  - action: utter_q7RU
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumRU
+  - action: utter_notCorrectSumRU1
+  - action: utter_notCorrectSumRU2
+  - action: utter_q7RU
+
+- rule: q7_notCorrectSumKG
+  steps:
+  - action: utter_q7KG
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumKG
+  - action: utter_notCorrectSumKG1
+  - action: utter_notCorrectSumKG2
+  - action: utter_q7KG
+
+- rule: q7_whoIsItRU
+  steps:
+  - action: utter_q7RU
+  - intent: whoIsIt
+  - action: utter_whoIsItRU
+  - action: utter_q7RU
+
+- rule: q7_whoIsItKG
+  steps:
+  - action: utter_q7KG
+  - intent: whoIsIt
+  - action: utter_whoIsItKG
+  - action: utter_q7KG
+
+- rule: q7_yesRU
+  steps:
+  - action: utter_q7RU
+  - intent: yes
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q7_yesKG
+  steps:
+  - action: utter_q7KG
+  - intent: yes
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+
+- rule: q7_willpayRU
+  steps:
+  - action: utter_q7RU
+  - intent: willpay
+  - action: utter_willpayRU
+
+- rule: q7_willpayKG
+  steps:
+  - action: utter_q7KG
+  - intent: willpay
+  - action: utter_willpayKG
+
+- rule: q7_noRU
+  steps:
+  - action: utter_q7RU
+  - intent: no
+  - action: utter_finalNoRU
+
+- rule: q7_noKG
+  steps:
+  - action: utter_q7KG
+  - intent: no
+  - action: utter_finalNoKG
+
+
+
+# q_unclear_speach--------------------------------------------------------------------
+
+- rule: q_unclearSpeach_oosRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - or:
+    - intent: langDetectRU
+    - intent: langDetectKG
+    - intent: changeLangRU
+    - intent: nlu_fallback
+  - action: utter_q3RU
+
+
+- rule: q_unclearSpeach_oosKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - or:
+    - intent: langDetectKG
+    - intent: langDetectRU
+    - intent: changeLangKG
+    - intent: nlu_fallback
+  - action: utter_q3KG
+
+
+- rule: q_unclearSpeach_changelangRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: changeLangKG
+  - action: utter_q3KG
+
+
+- rule: q_unclearSpeach_changelangKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: changeLangRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_repeatRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: repeat
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_repeatKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: repeat
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_noMoneyRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_noRU
+  - action: utter_q7RU
+
+- rule: q_unclearSpeach_noMoneyKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_noKG
+  - action: utter_q7KG
+  
+
+- rule: q_unclearSpeach_notMyCreditRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: notMyCredit
+  - action: utter_notMyCreditRU
+  - action: utter_q5RU
+
+- rule: q_unclearSpeach_notMyCreditKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: notMyCredit
+  - action: utter_notMyCreditKG
+  - action: utter_q5KG
+
+- rule: q_unclearSpeach_knownRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: known
+  - action: utter_knownRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_knownKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: known
+  - action: utter_knownKG
+  - action: utter_q3KG
+
+
+- rule: q_unclearSpeach_stopCallingMeRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_stopCallingMeKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightKG
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_whoDoYouCallRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_whoDoYouCallKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallKG
+  - action: utter_q3KG
+  
+- rule: q_unclearSpeach_moneyOnCardRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_moneyOnCardKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardKG
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_whenRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: when
+  - action: utter_whenRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_whenKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: when
+  - action: utter_whenKG
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_otherQuestionRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: otherQuestion
+  - action: utter_otherQuestionRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_otherQuestionKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: otherQuestion
+  - action: utter_otherQuestionKG
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_terminalDoesntWorkRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_terminalDoesntWorkKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkKG
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_howMuchRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: howMuch
+  - action: utter_howMuchRU
+  - action: utter_howMuchRU1
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_howMuchKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: howMuch
+  - action: utter_howMuchKG
+  - action: utter_howMuchKG1
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_unclearSpeachRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachRU
+
+- rule: q_unclearSpeach_unclearSpeachKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachKG
+
+- rule: q_unclearSpeach_wrongNumberRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - or: 
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberRU
+
+- rule: q_unclearSpeach_wrongNumberKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - or:
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberKG
+
+- rule: q_unclearSpeach_paidRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: paid
+  - action: utter_paidRU
+ 
+- rule: q_unclearSpeach_paidKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: paid
+  - action: utter_paidKG
+
+- rule: q_unclearSpeach_soundlesslyRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: soundlessly
+  - action: utter_soundlesslyRU
+
+- rule: q_unclearSpeach_soundlesslyKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: soundlessly
+  - action: utter_soundlesslyKG
+
+- rule: q_unclearSpeach_dontHaveCreditRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditRU
+
+- rule: q_unclearSpeach_dontHaveCreditKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditKG
+
+- rule: q_unclearSpeach_haveAQuestionRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionRU
+
+- rule: q_unclearSpeach_haveAQuestionKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionKG
+
+- rule: q_unclearSpeach_appDoesntWorkRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_appDoesntWorkKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkKG
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_judgeRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: judge
+  - action: utter_judgeRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_judgeKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: judge
+  - action: utter_judgeKG
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_adressRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: adress
+  - action: utter_adressRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_adressKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: adress
+  - action: utter_adressKG
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_whatALoanRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: whatALoan
+  - action: utter_whatALoanRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_whatALoanKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: whatALoan
+  - action: utter_whatALoanKG
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_detailsRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: details
+  - action: utter_detailsRU
+  - action: utter_q3RU
+
+
+- rule: q_unclearSpeach_detailsKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: details
+  - action: utter_detailsKG
+  - action: utter_q3KG
+
+
+- rule: q_unclearSpeach_dontHaveRightRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_dontHaveRightKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightKG
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_tomorrowRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: tomorrow
+  - action: utter_tomorrowRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_tomorrowKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: tomorrow
+  - action: utter_tomorrowKG
+  - action: utter_q3KG
+  
+- rule: q_unclearSpeach_notCorrectSumRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumRU
+  - action: utter_notCorrectSumRU1
+  - action: utter_notCorrectSumRU2
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_notCorrectSumKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumKG
+  - action: utter_notCorrectSumKG1
+  - action: utter_notCorrectSumKG2
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_whoIsItRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: whoIsIt
+  - action: utter_whoIsItRU
+  - action: utter_q3RU
+
+- rule: q_unclearSpeach_whoIsItKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: whoIsIt
+  - action: utter_whoIsItKG
+  - action: utter_q3KG
+
+- rule: q_unclearSpeach_yesRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: yes
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q_unclearSpeach_yesKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: yes
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+
+
+- rule: q_unclearSpeach_willpayRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: willpay
+  - action: utter_willpayRU
+
+- rule: q_unclearSpeach_willpayKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: willpay
+  - action: utter_willpayKG
+
+- rule: q_unclearSpeach_noRU
+  steps:
+  - action: utter_q_unclearSpeachRU
+  - intent: no
+  - action: utter_finalNoRU
+
+- rule: q_unclearSpeach_noKG
+  steps:
+  - action: utter_q_unclearSpeachKG
+  - intent: no
+  - action: utter_finalNoKG
+
+
+
+# soundlessly--------------------------------------------------------------------
+
+- rule: q_soundlessly_oosRU
+  steps:
+  - action: utter_soundlesslyRU
+  - or:
+    - intent: langDetectRU
+    - intent: langDetectKG
+    - intent: changeLangRU
+    - intent: nlu_fallback
+  - action: utter_q3RU
+
+
+- rule: q_soundlessly_oosKG
+  steps:
+  - action: utter_soundlesslyKG
+  - or:
+    - intent: langDetectKG
+    - intent: langDetectRU
+    - intent: changeLangKG
+    - intent: nlu_fallback
+  - action: utter_q3KG
+
+
+- rule: q_soundlessly_changelangRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: changeLangKG
+  - action: utter_q3KG
+
+
+- rule: q_soundlessly_changelangKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: changeLangRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_repeatRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: repeat
+  - action: utter_soundlesslyRU
+
+- rule: q_soundlessly_repeatKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: repeat
+  - action: utter_soundlesslyKG
+
+- rule: q_soundlessly_noMoneyRU
+  steps:
+  - action: utter_soundlesslyRU
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_noRU
+  - action: utter_q7RU
+
+- rule: q_soundlessly_noMoneyKG
+  steps:
+  - action: utter_soundlesslyKG
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_noKG
+  - action: utter_q7KG
+   
+- rule: q_soundlessly_notMyCreditRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: notMyCredit
+  - action: utter_notMyCreditRU
+  - action: utter_q5RU
+
+- rule: q_soundlessly_notMyCreditKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: notMyCredit
+  - action: utter_notMyCreditKG
+  - action: utter_q5KG
+
+- rule: q_soundlessly_knownRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: known
+  - action: utter_knownRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_knownKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: known
+  - action: utter_knownKG
+  - action: utter_q3KG
+
+
+- rule: q_soundlessly_stopCallingMeRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_stopCallingMeKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightKG
+  - action: utter_q3KG
+
+- rule: q_soundlessly_whoDoYouCallRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_whoDoYouCallKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallKG
+  - action: utter_q3KG
+  
+- rule: q_soundlessly_moneyOnCardRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_moneyOnCardKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardKG
+  - action: utter_q3KG
+
+- rule: q_soundlessly_whenRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: when
+  - action: utter_whenRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_whenKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: when
+  - action: utter_whenKG
+  - action: utter_q3KG
+
+- rule: q_soundlessly_otherQuestionRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: otherQuestion
+  - action: utter_otherQuestionRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_otherQuestionKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: otherQuestion
+  - action: utter_otherQuestionKG
+  - action: utter_q3KG
+
+- rule: q_soundlessly_terminalDoesntWorkRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_terminalDoesntWorkKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkKG
+  - action: utter_q3KG
+
+- rule: q_soundlessly_howMuchRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: howMuch
+  - action: utter_howMuchRU
+  - action: utter_howMuchRU1
+  - action: utter_q3RU
+
+- rule: q_soundlessly_howMuchKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: howMuch
+  - action: utter_howMuchKG
+  - action: utter_howMuchKG1
+  - action: utter_q3KG
+
+- rule: q_soundlessly_unclearSpeachRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachRU
+
+
+- rule: q_soundlessly_unclearSpeachKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachKG
+
+
+- rule: q_soundlessly_wrongNumberRU
+  steps:
+  - action: utter_soundlesslyRU
+  - or: 
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberRU
+
+- rule: q_soundlessly_wrongNumberKG
+  steps:
+  - action: utter_soundlesslyKG
+  - or:
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberKG
+
+- rule: q_soundlessly_paidRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: paid
+  - action: utter_paidRU
+ 
+- rule: q_soundlessly_paidKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: paid
+  - action: utter_paidKG
+
+- rule: q_soundlessly_soundlesslyRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: soundlessly
+  - action: utter_soundlesslyRU
+
+- rule: q_soundlessly_soundlesslyKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: soundlessly
+  - action: utter_soundlesslyKG
+
+- rule: q_soundlessly_dontHaveCreditRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditRU
+
+- rule: q_soundlessly_dontHaveCreditKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditKG
+
+- rule: q_soundlessly_haveAQuestionRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionRU
+
+- rule: q_soundlessly_haveAQuestionKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionKG
+
+- rule: q_soundlessly_appDoesntWorkRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_appDoesntWorkKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkKG
+  - action: utter_q3KG
+
+- rule: q_soundlessly_judgeRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: judge
+  - action: utter_judgeRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_judgeKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: judge
+  - action: utter_judgeKG
+  - action: utter_q3KG
+
+- rule: q_soundlessly_adressRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: adress
+  - action: utter_adressRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_adressKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: adress
+  - action: utter_adressKG
+  - action: utter_q3KG
+
+- rule: q_soundlessly_whatALoanRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: whatALoan
+  - action: utter_whatALoanRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_whatALoanKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: whatALoan
+  - action: utter_whatALoanKG
+  - action: utter_q3KG
+
+- rule: q_soundlessly_detailsRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: details
+  - action: utter_detailsRU
+  - action: utter_q3RU
+
+
+- rule: q_soundlessly_detailsKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: details
+  - action: utter_detailsKG
+  - action: utter_q3KG
+
+
+- rule: q_soundlessly_dontHaveRightRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_dontHaveRightKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightKG
+  - action: utter_q3KG
+
+- rule: q_soundlessly_tomorrowRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: tomorrow
+  - action: utter_q3RU
+
+- rule: q_soundlessly_tomorrowKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: tomorrow
+  - action: utter_q3KG
+  
+- rule: q_soundlessly_notCorrectSumRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumRU
+  - action: utter_notCorrectSumRU1
+  - action: utter_notCorrectSumRU2
+  - action: utter_q3RU
+
+- rule: q_soundlessly_notCorrectSumKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumKG
+  - action: utter_notCorrectSumKG1
+  - action: utter_notCorrectSumKG2
+  - action: utter_q3RU
+
+- rule: q_soundlessly_whoIsItRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: whoIsIt
+  - action: utter_whoIsItRU
+  - action: utter_q3RU
+
+- rule: q_soundlessly_whoIsItKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: whoIsIt
+  - action: utter_whoIsItKG
+  - action: utter_q3KG
+
+- rule: q_soundlessly_yesRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: yes
+  - action: utter_q3RU
+
+- rule: q_soundlessly_yesKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: yes
+  - action: utter_q3RU
+
+
+- rule: q_soundlessly_willpayRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: willpay
+  - action: utter_q3RU
+
+- rule: q_soundlessly_willpayKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: willpay
+  - action: utter_q3KG
+
+- rule: q_soundlessly_noRU
+  steps:
+  - action: utter_soundlesslyRU
+  - intent: no
+  - action: utter_finalNoRU
+
+- rule: q_soundlessly_noKG
+  steps:
+  - action: utter_soundlesslyKG
+  - intent: no
+  - action: utter_finalNoKG
+
+
+
+# haveAQuestion--------------------------------------------------------------------
+
+- rule: q_haveAQuestion_oosRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - or:
+    - intent: langDetectRU
+    - intent: langDetectKG
+    - intent: changeLangRU
+    - intent: nlu_fallback
+  - action: utter_q3RU
+
+
+- rule: q_haveAQuestion_oosKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - or:
+    - intent: langDetectKG
+    - intent: langDetectRU
+    - intent: changeLangKG
+    - intent: nlu_fallback
+  - action: utter_q3KG
+
+
+- rule: q_haveAQuestion_changelangRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: changeLangKG
+  - action: utter_q3KG
+
+
+- rule: q_haveAQuestion_changelangKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: changeLangRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_repeatRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: repeat
+  - action: utter_haveAQuestionRU
+
+- rule: q_haveAQuestion_repeatKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: repeat
+  - action: utter_haveAQuestionKG
+
+- rule: q_haveAQuestion_noMoneyRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_noRU
+  - action: utter_q7RU
+
+
+- rule: q_haveAQuestion_noMoneyKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - or:
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: finePercent
+    - intent: sick
+  - action: utter_noKG
+  - action: utter_q7KG
+
+- rule: q_haveAQuestion_notMyCreditRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: notMyCredit
+  - action: utter_notMyCreditRU
+  - action: utter_q5RU
+
+- rule: q_haveAQuestion_notMyCreditKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: notMyCredit
+  - action: utter_notMyCreditKG
+  - action: utter_q5KG
+
+- rule: q_haveAQuestion_knownRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: known
+  - action: utter_knownRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_knownKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: known
+  - action: utter_knownKG
+  - action: utter_q3KG
+
+
+- rule: q_haveAQuestion_stopCallingMeRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_stopCallingMeKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: stopCallingMe
+  - action: utter_dontHaveRightKG
+  - action: utter_q3KG
+
+- rule: q_haveAQuestion_whoDoYouCallRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_whoDoYouCallKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: whoDoYouCall
+  - action: utter_whoDoYouCallKG
+  - action: utter_q3KG
+  
+- rule: q_haveAQuestion_moneyOnCardRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_moneyOnCardKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: moneyOnCard
+  - action: utter_moneyOnCardKG
+  - action: utter_q3KG
+
+- rule: q_haveAQuestion_whenRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: when
+  - action: utter_whenRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_whenKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: when
+  - action: utter_whenKG
+  - action: utter_q3KG
+
+- rule: q_haveAQuestion_otherQuestionRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: otherQuestion
+  - action: utter_otherQuestionRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_otherQuestionKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: otherQuestion
+  - action: utter_otherQuestionKG
+  - action: utter_q3KG
+
+- rule: q_haveAQuestion_terminalDoesntWorkRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_terminalDoesntWorkKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: terminalDoesntWork
+  - action: utter_terminalDoesntWorkKG
+  - action: utter_q3KG
+
+- rule: q_haveAQuestion_howMuchRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: howMuch
+  - action: utter_howMuchRU
+  - action: utter_howMuchRU1
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_howMuchKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: howMuch
+  - action: utter_howMuchKG
+  - action: utter_howMuchKG1
+  - action: utter_q3KG
+
+- rule: q_haveAQuestion_unclearSpeachRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachRU
+
+- rule: q_haveAQuestion_unclearSpeachKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: unclearSpeach
+  - action: utter_unclearSpeachKG
+
+
+- rule: q_haveAQuestion_wrongNumberRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - or: 
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberRU
+
+- rule: q_haveAQuestion_wrongNumberKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - or:
+    - intent: wrongNumber
+    - intent: relative
+  - action: utter_wrongNumberKG
+
+- rule: q_haveAQuestion_paidRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: paid
+  - action: utter_paidRU
+ 
+- rule: q_haveAQuestion_paidKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: paid
+  - action: utter_paidKG
+
+- rule: q_haveAQuestion_soundlesslyRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: soundlessly
+  - action: utter_soundlesslyRU
+
+- rule: q_haveAQuestion_soundlesslyKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: soundlessly
+  - action: utter_soundlesslyKG
+
+- rule: q_haveAQuestion_dontHaveCreditRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditRU
+
+- rule: q_haveAQuestion_dontHaveCreditKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: dontHaveCredit
+  - action: utter_dontHaveCreditKG
+
+- rule: q_haveAQuestion_haveAQuestionRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionRU
+
+- rule: q_haveAQuestion_haveAQuestionKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: haveAQuestion
+  - action: utter_haveAQuestionKG
+
+- rule: q_haveAQuestion_appDoesntWorkRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_appDoesntWorkKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: appDoesntWork
+  - action: utter_appDoesntWorkKG
+  - action: utter_q3KG
+
+- rule: q_haveAQuestion_judgeRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: judge
+  - action: utter_judgeRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_judgeKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: judge
+  - action: utter_judgeKG
+  - action: utter_q3KG
+
+- rule: q_haveAQuestion_adressRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: adress
+  - action: utter_adressRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_adressKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: adress
+  - action: utter_adressKG
+  - action: utter_q3KG
+
+- rule: q_haveAQuestion_whatALoanRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: whatALoan
+  - action: utter_whatALoanRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_whatALoanKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: whatALoan
+  - action: utter_whatALoanKG
+  - action: utter_q3KG
+
+- rule: q_haveAQuestion_detailsRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: details
+  - action: utter_detailsRU
+  - action: utter_q3RU
+
+
+- rule: q_haveAQuestion_detailsKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: details
+  - action: utter_detailsKG
+  - action: utter_q3KG
+
+
+- rule: q_haveAQuestion_dontHaveRightRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_dontHaveRightKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: dontHaveRight
+  - action: utter_dontHaveRightKG
+  - action: utter_q3KG
+
+- rule: q_haveAQuestion_tomorrowRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: tomorrow
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q_haveAQuestion_tomorrowKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: tomorrow
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+ 
+  
+- rule: q_haveAQuestion_notCorrectSumRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumRU
+  - action: utter_notCorrectSumRU1
+  - action: utter_notCorrectSumRU2
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_notCorrectSumKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: notCorrectSum
+  - action: utter_notCorrectSumKG
+  - action: utter_notCorrectSumKG1
+  - action: utter_notCorrectSumKG2
+  - action: utter_q3KG
+
+- rule: q_haveAQuestion_whoIsItRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: whoIsIt
+  - action: utter_whoIsItRU
+  - action: utter_q3RU
+
+- rule: q_haveAQuestion_whoIsItKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: whoIsIt
+  - action: utter_whoIsItKG
+  - action: utter_q3KG
+
+- rule: q_haveAQuestion_yesRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: yes
+  - action: utter_yesRU
+  - action: utter_yesRU1
+  - action: utter_yesRU2
+
+- rule: q_haveAQuestion_yesKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: yes
+  - action: utter_yesKG
+  - action: utter_yesKG1
+  - action: utter_yesKG2
+
+- rule: q_haveAQuestion_willpayRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: willpay
+  - action: utter_willpayRU
+
+- rule: q_haveAQuestion_willpayKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: willpay
+  - action: utter_willpayKG
+
+- rule: q_haveAQuestion_noRU
+  steps:
+  - action: utter_haveAQuestionRU
+  - intent: no
+  - action: utter_finalNoRU
+
+
+- rule: q_haveAQuestion_noKG
+  steps:
+  - action: utter_haveAQuestionKG
+  - intent: no
+  - action: utter_finalNoKG
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

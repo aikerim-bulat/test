@@ -1,0 +1,61 @@
+version: "3.1"
+
+stories:
+
+- story: greeting at langDetectRU
+  steps:
+  - or:
+    - intent: langDetectRU
+    - intent: changeLangRU
+    - intent: forgot
+    - intent: delay
+    - intent: lostJob
+    - intent: noMoney
+    - intent: notMyCredit
+    - intent: known
+    - intent: finePercent
+    - intent: stopCallingMe
+    - intent: whoDoYouCall
+    - intent: moneyOnCard
+    - intent: when
+    - intent: otherQuestion
+    - intent: terminalDoesntWork
+    - intent: howMuch
+    - intent: unclearSpeach
+    - intent: wrongNumber
+    - intent: paid
+    - intent: sick
+    - intent: soundlessly
+    - intent: dontHaveCredit
+    - intent: haveAQuestion
+    - intent: appDoesntWork
+    - intent: judge
+    - intent: adress
+    - intent: whatALoan
+    - intent: repeat
+    - intent: details
+    - intent: relative
+    - intent: dontHaveRight
+    - intent: tomorrow
+    - intent: notCorrectSum
+    - intent: whoIsIt
+    - intent: yes
+    - intent: willpay
+    - intent: no
+    - intent: nlu_fallback
+  - action: utter_langDetectRU
+  - action: utter_langDetectRU1
+  - action: utter_langDetectRU2
+  - action: utter_q1RU
+  
+
+
+- story: greeting at langDetectKG
+  steps:
+  - or:
+    - intent: langDetectKG
+    - intent: changeLangKG
+  - action: utter_langDetectKG
+  - action: utter_langDetectKG1
+  - action: utter_langDetectKG2
+  - action: utter_q1KG
